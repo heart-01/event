@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -40,5 +41,14 @@ class User extends Authenticatable
     public function getStatusAttribute(){ 
         $users = User::find(Auth::user()->id);
         return $users->status_user;
+    }
+
+    public function scopeUsersAll($query)
+    { 
+        $query = DB::table('users AS u')
+                ->select('*')
+                ->orderBy("id", "desc");
+
+        return $query;
     }
 }

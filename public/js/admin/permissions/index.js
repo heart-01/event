@@ -81,109 +81,114 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/admin/calendarEvent/data-row.js":
-/*!******************************************************!*\
-  !*** ./resources/js/admin/calendarEvent/data-row.js ***!
-  \******************************************************/
+/***/ "./resources/js/admin/permissions/index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/permissions/index.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-//showEdit
-$(".showEdit").click(function () {
-  var event_id = $(this).attr('data-event_id');
-  var name = $(this).attr('data-name');
-  var img = $(this).attr('data-banner');
-  var link_img = img.split('.');
-  var description = $(this).attr('data-description');
-  var category_id = $(this).attr('data-category_id');
-  var eventDateFormTo = $(this).attr('data-eventDateFormTo');
-  var data_registerStartEndDate = $(this).attr('data-data_registerStartEndDate');
-  var surveyRequired = $(this).attr('data-surveyRequired');
-  var certificateAvailable = $(this).attr('data-certificateAvailable');
-  var organizer = $(this).attr('data-organizer');
-  $('#showEdit').modal('show');
-  $("#event_id-edit").val(event_id);
-  $("#name-edit").val(name);
+function fetch_data(page, sort_type, sort_by, query) {
+  var result1;
+  var result2;
+  $.when($.ajax({
+    url: config.routes.fetch_data,
+    type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: {
+      page: page,
+      sorttype: sort_type,
+      sortby: sort_by,
+      query: query
+    },
+    success: function success(result) {
+      result1 = result; //console.log(result);
+    }
+  }), $.ajax({
+    url: config.routes.pagination_link,
+    type: 'POST',
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: {
+      page: page,
+      sorttype: sort_type,
+      sortby: sort_by,
+      query: query
+    },
+    success: function success(result) {
+      result2 = result; //console.log(result);
+    }
+  })).then(function () {
+    $('tbody').html('');
+    $('tbody').html(result1);
+    $('#pagination-link').html('');
+    $('#pagination-link').html(result2);
+  });
+}
 
-  if (img == "nopic.jpg") {
-    $("#img-edit").attr("src", config.asset.def + "/" + img);
-    $("#link-img-edit").attr("href", config.asset.def + "/" + img);
-  } else {
-    $("#img-edit").attr("src", config.asset.img_edit + "/" + img);
-    $("#link-img-edit").attr("href", config.asset.link_img_edit + "/" + link_img[0] + "/" + img);
+$(document).on('keyup', '#serach', function () {
+  var query = $('#serach').val();
+  var column_name = $('#hidden_column_name').val();
+  var sort_type = $('#hidden_sort_type').val();
+  $('#hidden_page').val(1);
+  var page = $('#hidden_page').val();
+  fetch_data(page, sort_type, column_name, query);
+});
+$(document).on('click', '.sorting', function () {
+  var column_name = $(this).data('column_name');
+  var order_type = $(this).data('sorting_type');
+  var reverse_order = '';
+
+  if (order_type == 'asc') {
+    $(this).data('sorting_type', 'desc');
+    reverse_order = 'desc';
+    $('#' + column_name + '_icon').html('<i class="fas fa-arrow-up"></i>');
   }
 
-  $("#description-edit").val(description);
-  $('#category-edit').selectpicker('val', category_id);
-  $("#eventDateFormTo-edit").val(eventDateFormTo);
-  $("#registerStartEndDate-edit").val(data_registerStartEndDate);
-  $("#SurveyRequired-edit").selectpicker('val', surveyRequired);
-  $("#certificateAvailable-edit").selectpicker('val', certificateAvailable);
-  $("#organizer-edit").val(organizer);
-  return false;
-}); //event_delete
+  if (order_type == 'desc') {
+    $(this).data('sorting_type', 'asc');
+    reverse_order = 'asc';
+    $('#' + column_name + '_icon').html('<i class="fas fa-arrow-down"></i>');
+  }
 
-$(".event_delete").click(function () {
-  var event_id = $(this).attr('data-event_id');
-  var name = $(this).attr('data-name');
-  Swal.fire({
-    title: "<span class='kanin'>Delete <span style='color:#d33'>\n\"" + name + "\"</span> \nYes or No ??</span>",
-    text: "",
-    icon: "warning",
-    iconColor: '#d33',
-    width: 700,
-    showCancelButton: true,
-    confirmButtonColor: '#28a745',
-    confirmButtonText: 'Yes',
-    cancelButtonColor: '#d33',
-    cancelButtonText: 'No'
-  }).then(function (result) {
-    if (result.isConfirmed) {
-      $.when($.ajax({
-        url: config.routes.del,
-        type: 'POST',
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          event_id: event_id
-        },
-        success: function success(data) {
-          result = data;
-        }
-      })).then(function () {
-        if (result == "del") {
-          Swal.fire({
-            title: "<span class='kanin'>Delete \"" + name + "\" </span>",
-            text: "",
-            icon: "success",
-            showConfirmButton: false,
-            timer: 1500
-          }).then(function () {
-            window.location.href = config.routes.index;
-          });
-        }
-      });
-    }
-  });
-  return false;
+  $('#hidden_column_name').val(column_name);
+  $('#hidden_sort_type').val(reverse_order);
+  var page = $('#hidden_page').val();
+  var query = $('#serach').val(); //alert(page + reverse_order + column_name + query);
+
+  fetch_data(page, reverse_order, column_name, query);
+});
+$(document).on('click', '.pagination a', function (event) {
+  event.preventDefault();
+  var page = $(this).attr('href').split('page=')[1];
+  $('#hidden_page').val(page);
+  var column_name = $('#hidden_column_name').val();
+  var sort_type = $('#hidden_sort_type').val();
+  var query = $('#serach').val();
+  $('li').removeClass('active');
+  $(this).parent().addClass('active'); //alert(page + sort_type + column_name + query);
+
+  fetch_data(page, sort_type, column_name, query);
 });
 
 /***/ }),
 
-/***/ 9:
-/*!************************************************************!*\
-  !*** multi ./resources/js/admin/calendarEvent/data-row.js ***!
-  \************************************************************/
+/***/ 6:
+/*!*******************************************************!*\
+  !*** multi ./resources/js/admin/permissions/index.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\EventManage\resources\js\admin\calendarEvent\data-row.js */"./resources/js/admin/calendarEvent/data-row.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\EventManage\resources\js\admin\permissions\index.js */"./resources/js/admin/permissions/index.js");
 
 
 /***/ })

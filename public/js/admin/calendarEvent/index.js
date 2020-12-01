@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -181,7 +181,7 @@ $(document).on('click', '.pagination a', function (event) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 8:
 /*!*********************************************************!*\
   !*** multi ./resources/js/admin/calendarEvent/index.js ***!
   \*********************************************************/

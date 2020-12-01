@@ -2,10 +2,33 @@
 $(".showEdit").click(function(){
     var event_id = $(this).attr('data-event_id');
     var name = $(this).attr('data-name');
+    var img = $(this).attr('data-banner');
+    var link_img = img.split('.');
+    var description =  $(this).attr('data-description');
+    var category_id =  $(this).attr('data-category_id');
+    var eventDateFormTo =  $(this).attr('data-eventDateFormTo');
+    var data_registerStartEndDate =  $(this).attr('data-data_registerStartEndDate');
+    var surveyRequired =  $(this).attr('data-surveyRequired');
+    var certificateAvailable =  $(this).attr('data-certificateAvailable');
+    var organizer =  $(this).attr('data-organizer');
 
     $('#showEdit').modal('show'); 
     $("#event_id-edit").val(event_id);
     $("#name-edit").val(name);
+    if(img == "nopic.jpg"){
+        $("#img-edit").attr("src", config.asset.def + "/" + img);
+        $("#link-img-edit").attr("href", config.asset.def + "/" + img);
+    }else{
+        $("#img-edit").attr("src", config.asset.img_edit + "/" + img);
+        $("#link-img-edit").attr("href", config.asset.link_img_edit + "/" + link_img[0] + "/" + img);
+    }
+    $("#description-edit").val(description);
+    $('#category-edit').selectpicker('val', category_id);
+    $("#eventDateFormTo-edit").val(eventDateFormTo);
+    $("#registerStartEndDate-edit").val(data_registerStartEndDate);
+    $("#SurveyRequired-edit").selectpicker('val', surveyRequired);
+    $("#certificateAvailable-edit").selectpicker('val', certificateAvailable);
+    $("#organizer-edit").val(organizer);    
 
     return false;
 });

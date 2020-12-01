@@ -27,6 +27,8 @@
   <!--Selected-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+  <!-- Sweet Alert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <!-- Other JS -->
 
   <title>{{ config('app.name', 'Laravel') }}</title>
@@ -92,22 +94,21 @@
             @endif   
             @if (Session::get('status')=='1') 
               <div class="decoration-inside"></div>
-              <a href="{{ route('calendarEvent') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
+              <a href="{{ route('permissions') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
                 <i class="fas fa-user-cog"></i> Admin Dashboard
               </a>
-            @endif  
-            
+            @endif           
 
             <div class="text-right">
               @if (Session::get('status')) 
                 <!--Desktop-->
-                <a class="btn btn-danger btn-sm rounded-pill mt-1 d-none d-sm-none d-md-none d-lg-block" href="{{ route('logout') }}"
+                <a class="btn btn-danger btn-sm rounded-pill mt-1 d-none d-sm-none d-md-none d-lg-block logout" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> Sign Out
                 </a>
                 <!--Mobile-->
-                <a class="btn btn-danger btn-sm rounded-pill mt-1 d-block d-sm-block d-md-block d-lg-none" href="{{ route('logout') }}"
+                <a class="btn btn-danger btn-sm rounded-pill mt-1 d-block d-sm-block d-md-block d-lg-none logout" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                   <i class="fas fa-sign-out-alt"></i> Sign Out

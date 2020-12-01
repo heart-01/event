@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Events\UserLoggedIn;
+use App\Event;
 
 class HomeController extends Controller
 {
@@ -12,10 +13,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -25,6 +22,11 @@ class HomeController extends Controller
     public function index()
     {
         event(new  UserLoggedIn("Your login has success"));
-        return view('site.front.index');
+
+        $data = Event::orderBy('event_id', 'desc')->get();
+
+        return view('site.front.index', [
+            'data' => $data,
+        ]);
     }
 }

@@ -3,6 +3,8 @@
     "/js/admin/calendarEvent/index.js": "/js/admin/calendarEvent/index.js",
     "/js/admin/calendarEvent/modal.js": "/js/admin/calendarEvent/modal.js",
     "/js/admin/dashboard.js": "/js/admin/dashboard.js",
+    "/js/admin/permissions/data-row.js": "/js/admin/permissions/data-row.js",
+    "/js/admin/permissions/index.js": "/js/admin/permissions/index.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/front/main/bootstrap.min.js": "/js/front/main/bootstrap.min.js",

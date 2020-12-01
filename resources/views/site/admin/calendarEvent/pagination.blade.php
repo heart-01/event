@@ -11,9 +11,14 @@
         <table class="table table-bordered table-hover dataTable dtr-inline text-center" role="grid">
             <thead>
                 <tr role="row">
-                    <th width="10%" class="sorting hand" tabindex="0" data-sorting_type="desc" data-column_name="event_id" >ID <span id="event_id_icon"><i class="fas fa-arrow-up"></i></span></th>
-                    <th width="20%">Event</th>
-                    <th width="20%" >Action</th>
+                    <th width="5%" class="sorting hand" tabindex="0" data-sorting_type="desc" data-column_name="event_id" >ID <span id="event_id_icon"><i class="fas fa-arrow-up"></i></span></th>
+                    <th width="5%">Banner</th>
+                    <th width="10%">Event</th>
+                    <th width="10%">Description</th>
+                    <th width="10%">Organizer</th>
+                    <th width="10%">Event Date</th>
+                    <th width="10%">Register Date</th>
+                    <th width="15%" >Action</th>
                 </tr>
             </thead>
             <tbody>

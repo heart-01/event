@@ -35,6 +35,11 @@
             update: "{{ route('calendarEvent.update') }}",
             del: "{{ route('calendarEvent.calendarEvent_del') }}",
         },
+        asset: {
+            def: "{{ asset('images') }}",
+            img_edit: "{{ asset('images/front/resize/banner') }}",
+            link_img_edit: "{{ asset('images/front/img_event') }}",
+        },
     };
 </script>
 

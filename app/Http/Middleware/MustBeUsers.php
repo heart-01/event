@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class MustBeSU
+class MustBeUsers
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,7 @@ class MustBeSU
     public function handle($request, Closure $next)
     {
         $user = $request->user();
-        if($user && $user->status=='1'){
-            return $next($request);
-        }else  if($user && $user->status=='2'){
+        if($user && $user->status=='3'){
             return $next($request);
         }
 

@@ -18,6 +18,9 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/front/main/main.js', 'public/js/front/main')
 
     .js('resources/js/admin/dashboard.js', 'public/js/admin')
+    .js('resources/js/admin/permissions/index.js', 'public/js/admin/permissions')
+    .js('resources/js/admin/permissions/data-row.js', 'public/js/admin/permissions')
+
     .js('resources/js/admin/calendarEvent/index.js', 'public/js/admin/calendarEvent')
     .js('resources/js/admin/calendarEvent/data-row.js', 'public/js/admin/calendarEvent')
     .js('resources/js/admin/calendarEvent/modal.js', 'public/js/admin/calendarEvent')

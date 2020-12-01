@@ -36,6 +36,10 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <!-- Sweet Alert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!--Selected-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  <!-- Date Range Picker -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <!-- Other CSS -->
   <link href="{{ asset('css/admin/main.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/datepicker/datepicker.css') }}">
@@ -165,6 +169,16 @@
               </p>
             </a>
           </li>
+          @if (Session::get('status')=='1') 
+          <li class="nav-item">
+            <a href="{{ route('permissions') }}" class="nav-link @if(Request::is('Permissions')) active @endif">
+              <i class="fas fa-user-cog"></i>
+              <p>
+                User Permissions
+              </p>
+            </a>
+          </li>
+          @endif  
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -229,6 +243,11 @@
 <script src="{{ asset('/dashboard/dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/dashboard/dist/js/demo.js') }}"></script>
+<!-- Selected -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<!-- Date Range Picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <!-- Lightbox -->
 <script src="{{ asset('/js/lity.min.js') }}"></script>
 <!-- Other JS -->

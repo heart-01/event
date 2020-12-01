@@ -17,14 +17,16 @@ Auth::routes();
 
 //front
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () {
-    return view('site.front.index');
-});
-Route::get('/welcome', function () {
-    return view('site.front.index');
-})->name('welcome');
+Route::get('/', 'HomeController@index');
+Route::get('/welcome', 'HomeController@index')->name('welcome');
 
 //admin
+Route::get('/Permissions', 'admin\PermissionsController@index')->name('permissions');
+Route::post('Permissions/fetch_data/', 'admin\PermissionsController@fetch_data')->name('permissions.fetch_data');
+Route::post('Permissions/pagination_link', 'admin\PermissionsController@pagination_link')->name('permissions.pagination_link');
+Route::post('Permissions/change_status', 'admin\PermissionsController@change_status')->name('permissions.change_status');
+
+//SU
 Route::get('/CalendarEvent', 'admin\calendarEventController@index')->name('calendarEvent');
 Route::post('CalendarEvent/fetch_data/', 'admin\calendarEventController@fetch_data')->name('calendarEvent.fetch_data');
 Route::post('CalendarEvent/pagination_link', 'admin\calendarEventController@pagination_link')->name('calendarEvent.pagination_link');
@@ -36,5 +38,5 @@ Route::post('CalendarEvent/del', 'admin\calendarEventController@del')->name('cal
 //clear cache
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
-    return view('site.front.index');
+    return route('home');
 });
