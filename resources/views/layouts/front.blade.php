@@ -29,6 +29,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
   <!-- Sweet Alert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- Recaptcha2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- Other JS -->
 
   <title>{{ config('app.name', 'Laravel') }}</title>
@@ -52,10 +54,10 @@
               </li>              
               @if (Session::get('status')=='1'||Session::get('status')=='2') 
                 <li class="nav-item mt-1 mb-1 d-block d-sm-none d-md-none nav-home">
-                <a href="{{ route('calendarEvent') }}" class="nav-link">
-                  Create Event
-                </a>
-              </li>
+                  <a href="{{ route('calendarEvent') }}" class="nav-link">
+                    Create Event
+                  </a>
+                </li>
               @endif
               @if (Session::get('status')=='1') 
                 <li class="nav-item mb-1 d-block d-sm-none d-md-none nav-dashboard">
@@ -134,44 +136,46 @@
   </div>
   <!--end  menu -->
   <!--start  image slide -->
-  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{{ asset('images/front/pichead.jpg') }}" class="d-block w-100" height="400" alt="pichead">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+  @section('sidebar')
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{ asset('images/front/pichead.jpg') }}" class="d-block w-100" height="400" alt="pichead">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{{ asset('images/front/pichead.jpg') }}" class="d-block w-100" height="400" alt="pichead">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{{ asset('images/front/pichead.jpg') }}" class="d-block w-100" height="400" alt="pichead">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="{{ asset('images/front/pichead.jpg') }}" class="d-block w-100" height="400" alt="pichead">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{{ asset('images/front/pichead.jpg') }}" class="d-block w-100" height="400" alt="pichead">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
-      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+  @show
   <!--end  image slide  -->
   <!--start  main -->
   <div class="container">
@@ -179,10 +183,10 @@
       <!--start content -->
       <div class="col col-sm-12 col-md-12">
         <br>
-        @if (Session::get('status'))
+        {{-- @if (Session::get('status'))
         ID = {{ Auth::user()->id }}
         Status = {{ Session::get('status') }}
-        @endif
+        @endif --}}
 
         @yield('content')
       </div>

@@ -18,6 +18,10 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/front/main/main.js', 'public/js/front/main')
 
     .js('resources/js/admin/dashboard.js', 'public/js/admin')
+    .js('resources/js/admin/category/index.js', 'public/js/admin/category')
+    .js('resources/js/admin/category/data-row.js', 'public/js/admin/category')
+    .js('resources/js/admin/category/modal.js', 'public/js/admin/category')
+
     .js('resources/js/admin/permissions/index.js', 'public/js/admin/permissions')
     .js('resources/js/admin/permissions/data-row.js', 'public/js/admin/permissions')
 

@@ -171,6 +171,14 @@
           </li>
           @if (Session::get('status')=='1') 
           <li class="nav-item">
+            <a href="{{ route('category') }}" class="nav-link @if(Request::is('Category')) active @endif">
+              <i class="far fa-object-group"></i>
+              <p>
+                Category
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('permissions') }}" class="nav-link @if(Request::is('Permissions')) active @endif">
               <i class="fas fa-user-cog"></i>
               <p>

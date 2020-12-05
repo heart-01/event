@@ -20,7 +20,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index');
 Route::get('/welcome', 'HomeController@index')->name('welcome');
 
+Route::get('/category/{name}', 'HomeController@category');
+
+Route::get('/Event/{name}', 'HomeController@event');
+
 //admin
+Route::get('/Category', 'admin\CategoryController@index')->name('category');
+Route::post('Category/fetch_data/', 'admin\CategoryController@fetch_data')->name('category.fetch_data');
+Route::post('Category/pagination_link', 'admin\CategoryController@pagination_link')->name('category.pagination_link');
+Route::post('Category', 'admin\CategoryController@store')->name('category.store');
+Route::post('Category/update', 'admin\CategoryController@update')->name('category.update');
+Route::post('Category/del', 'admin\CategoryController@del')->name('category.category_del');
+
 Route::get('/Permissions', 'admin\PermissionsController@index')->name('permissions');
 Route::post('Permissions/fetch_data/', 'admin\PermissionsController@fetch_data')->name('permissions.fetch_data');
 Route::post('Permissions/pagination_link', 'admin\PermissionsController@pagination_link')->name('permissions.pagination_link');

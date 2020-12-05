@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="mb-4" style="font-size: 25px;font-weight: 600">
+<div class="mb-1" style="font-size: 25px;font-weight: 600">
    Upcoming Events
 </div>
 
