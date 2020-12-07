@@ -14,18 +14,17 @@
 </head>
 <body>
     <div style="width: 90%;" class="center" >
-        <div class="text-center" style="font-size: 50px;" >{{ $name }}</div>
-        <div class="text-center h1" >{{ $event_date }}</div>
-        <div class="text-center h1" >{{ $organizer }}</div>
+        <div class="text-center" style="font-size: 36px;" >Event Name: {{ $name }}</div>
+        <div class="text-center h1" >Date: {{ $event_date }}</div>
+        <div class="text-center h1" >Organized by: {{ $organizer }}</div>
         <table width="100%" class="border-groove" style="margin-top: 20px;">
             <thead>
                 <tr class="border-groove text-center">
                     <td class="border-groove h1" width="10%" >No</td>
                     <td class="border-groove h1" width="10%" >ID</td>
-                    <td class="border-groove h1" width="20%" >Name</td>
                     <td class="border-groove h1" width="20%" >Registered Date</td>
+                    <td class="border-groove h1" width="40%" >Name</td>
                     <td class="border-groove h1" width="20%" >Signature</td>
-                    <td class="border-groove h1" width="20%" >Remark</td>
                 </tr>   
             </thead>
             <tbody>
@@ -33,9 +32,9 @@
                 <tr class="border-groove">
                     <th class="border-groove" >{{ $key+1 }}</th>
                     <td class="border-groove text-center" >{{ $row->student_id }}</td>
-                    <td class="border-groove" >&nbsp; {{ $row->fname . " " . $row->lname }}</td>
                     <td class="border-groove text-center" >{{ date('d M Y', strtotime($row->registered_date)) }}</td>
-                    <td class="border-groove" ></td>
+                    <td class="border-groove" >&nbsp; {{ $row->fname . " " . $row->lname }}</td>
+                    
                     <td class="border-groove" ></td>
                 </tr>      
                 @endforeach

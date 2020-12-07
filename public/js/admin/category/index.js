@@ -188,7 +188,7 @@ $(document).on('click', '.pagination a', function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\EventManage\resources\js\admin\category\index.js */"./resources/js/admin/category/index.js");
+module.exports = __webpack_require__(/*! C:\Bitnami\wampstack-7.4.12-0\apache2\htdocs\event\resources\js\admin\category\index.js */"./resources/js/admin/category/index.js");
 
 
 /***/ })

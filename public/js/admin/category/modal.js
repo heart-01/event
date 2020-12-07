@@ -124,7 +124,7 @@ name_edit.oninput = function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\EventManage\resources\js\admin\category\modal.js */"./resources/js/admin/category/modal.js");
+module.exports = __webpack_require__(/*! C:\Bitnami\wampstack-7.4.12-0\apache2\htdocs\event\resources\js\admin\category\modal.js */"./resources/js/admin/category/modal.js");
 
 
 /***/ })

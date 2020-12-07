@@ -23,8 +23,8 @@
             <tr>
                 <th scope="col">No.</th>
                 <th scope="col">ID</th>
-                <th scope="col">Name</th>
                 <th scope="col">Registered Date</th>
+                <th scope="col">Name</th>
             </tr>
         </thead>
         <tbody>
@@ -32,8 +32,8 @@
             <tr>
                 <th>{{ $key+1 }}</th>
                 <td>{{ $row->student_id }}</td>
-                <td>{{ $row->fname . " " . $row->lname }}</td>
                 <td>{{ date('d M Y', strtotime($row->registered_date)) }}</td>
+                <td>{{ $row->fname . " " . $row->lname }}</td>
             </tr>
             @endforeach
         </tbody>

@@ -70,11 +70,5 @@ class HomeController extends Controller
         return view('site.front.category', compact(['data']))->render();
     }
 
-    public function event ($name) {
-        $data = Event::where('name', '=', $name)->first();
-        $event_id = $data->event_id;
-        $no_of_registration = RegisteredUser::where('event_id', '=', $event_id)->count();
-
-        return view('site.front.registeredUser.index', compact(['data', 'no_of_registration']))->render();
-    }
+   
 }

@@ -148,7 +148,7 @@ $(".status_user").change(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\EventManage\resources\js\admin\permissions\data-row.js */"./resources/js/admin/permissions/data-row.js");
+module.exports = __webpack_require__(/*! C:\Bitnami\wampstack-7.4.12-0\apache2\htdocs\event\resources\js\admin\permissions\data-row.js */"./resources/js/admin/permissions/data-row.js");
 
 
 /***/ })

@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\EventManage\resources\js\front\main\main.js */"./resources/js/front/main/main.js");
+module.exports = __webpack_require__(/*! C:\Bitnami\wampstack-7.4.12-0\apache2\htdocs\event\resources\js\front\main\main.js */"./resources/js/front/main/main.js");
 
 
 /***/ })

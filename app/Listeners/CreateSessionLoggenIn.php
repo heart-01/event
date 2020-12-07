@@ -33,6 +33,8 @@ class CreateSessionLoggenIn
             //echo $event->login.'listenner has been called';
             $user = User::find( Auth::user()->id);
             session::put('status',$user->status_user);
+            session::put('user_id',$user->id);
+            session::put('fullname',$user->fname . " " . $user->lname);
         }
     }
 }

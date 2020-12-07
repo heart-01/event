@@ -185,7 +185,7 @@ $(".event_delete").click(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\EventManage\resources\js\admin\calendarEvent\data-row.js */"./resources/js/admin/calendarEvent/data-row.js");
+module.exports = __webpack_require__(/*! C:\Bitnami\wampstack-7.4.12-0\apache2\htdocs\event\resources\js\admin\calendarEvent\data-row.js */"./resources/js/admin/calendarEvent/data-row.js");
 
 
 /***/ })
