@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Events\UserLoggedIn;
 use App\Event;
 use App\EventCategory;
+use App\RegisteredUser;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -71,7 +72,9 @@ class HomeController extends Controller
 
     public function event ($name) {
         $data = Event::where('name', '=', $name)->first();
+        $event_id = $data->event_id;
+        $no_of_registration = RegisteredUser::where('event_id', '=', $event_id)->count();
 
-        return view('site.front.registeredUser.index', compact(['data']))->render();
+        return view('site.front.registeredUser.index', compact(['data', 'no_of_registration']))->render();
     }
 }

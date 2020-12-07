@@ -52,7 +52,7 @@
                         <p class="card-text">
                             <div class="text-left">
                                 <i class="fas fa-users mr-2"></i>
-                                <span class="following-count-text">0 followers</span>
+                                <span class="following-count-text">{{ $no_of_registration }} followers</span>
                             </div>
                         </p>
 

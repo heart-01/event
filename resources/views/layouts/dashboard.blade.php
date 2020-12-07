@@ -162,7 +162,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column kanin" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Dashboard -->
           <li class="nav-item">
-            <a href="{{ route('calendarEvent') }}" class="nav-link @if(Request::is('CalendarEvent')) active @endif">
+            <a href="{{ route('calendarEvent') }}" class="nav-link @if(Request::is('CalendarEvent') || Request::is('Report/registered')) active @endif">
               <i class="far fa-calendar-alt mr-2"></i>
               <p>
                 All Events

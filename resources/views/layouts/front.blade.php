@@ -96,12 +96,24 @@
               <!-- User Menu -->
               <li class="dropdown user user-menu open d-none d-sm-none d-md-none d-lg-block">
                 <a href="#" class="dropdown-toggle text-dark nav-link" style="display:block;width:80px;" data-toggle="dropdown" aria-expanded="true">
-                  <img src="{{ url('/dashboard/dist/img/admin.png') }}" width="63%" alt="User Image">
+                  <img src="{{ url('/dashboard/dist/img/admin.png') }}" width="63%" alt="User Image"> 
                 </a>
-                <ul class="dropdown-menu kanin" style="@if (Session::get('status')=='1') width: 200px !important;height: 180px !important; 
-                  @elseif (Session::get('status')=='2') width: 200px !important;height: 120px !important; @else width: 200px !important;height: 65px !important; @endif">
+                <ul class="dropdown-menu kanin" style="@if (Session::get('status')=='1') width: 200px !important;height: 300px !important; 
+                  @elseif (Session::get('status')=='2') width: 200px !important;height: 240px !important; @else width: 200px !important;height: 180px !important; @endif">
                     <!-- Menu Body -->
                     <li class="user-body">
+                        <div class="col-xs-4 text-center">
+                          <a href="{{ route('myevent') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
+                            My Events
+                          </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="col-xs-4 text-center">
+                          <a href="{{ route('myprofile') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
+                            My Profile
+                          </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
                         @if (Session::get('status')=='1'||Session::get('status')=='2') 
                           <div class="col-xs-4 text-center">
                             <a href="{{ route('calendarEvent') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">

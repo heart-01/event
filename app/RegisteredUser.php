@@ -29,4 +29,33 @@ class RegisteredUser extends Model
 
         return $query;
     }
+
+    public function scopeReportRegisteredUser($query,$event_id)
+    {
+        $event_id = $event_id;
+
+        $query = DB::table('registereduser AS r')
+        ->join('event AS e', 'e.event_id', '=', 'r.event_id')
+        ->join('users AS u', 'u.id', '=', 'r.user_id')
+        ->where('r.event_id', '=', $event_id)
+        ->orderBy('u.lname', 'asc')
+        ->select('*');
+
+        return $query;
+    }
+
+    public function scopeMyEvent($query,$user_id)
+    {
+        $user_id = $user_id;
+
+        $query = DB::table('registereduser AS r')
+        ->join('event AS e', 'e.event_id', '=', 'r.event_id')
+        ->join('users AS u', 'u.id', '=', 'r.user_id')
+        ->where('r.user_id', '=', $user_id)
+        ->orderBy('e.name', 'asc')
+        ->select('*');
+
+        return $query;
+    }
+
 }

@@ -26,6 +26,12 @@ Route::get('/Event/{name}', 'HomeController@event');
 Route::post('Registered/ruleCaptcha', 'front\registeredUserController@ruleCaptcha')->name('registered.ruleCaptcha');
 Route::post('Registered', 'front\registeredUserController@registered')->name('registered.registered');
 
+Route::get('/MyEvent', 'front\displayMyEventController@index')->name('myevent');
+
+Route::get('/Profiles', 'Auth\ProfilesController@index')->name('myprofile');
+Route::post('change-password', 'Auth\ProfilesController@updatePass')->name('myprofile.password');
+Route::post('change-profiles', 'Auth\ProfilesController@updateProfiles')->name('myprofile.profile');
+
 //admin
 Route::get('/Category', 'admin\CategoryController@index')->name('category');
 Route::post('Category/fetch_data/', 'admin\CategoryController@fetch_data')->name('category.fetch_data');
@@ -47,6 +53,9 @@ Route::post('CalendarEvent', 'admin\calendarEventController@store')->name('calen
 Route::post('CalendarEvent/update', 'admin\calendarEventController@update')->name('calendarEvent.update');
 Route::post('CalendarEvent/del', 'admin\calendarEventController@del')->name('calendarEvent.calendarEvent_del');
 
+//Reports
+Route::post('Report/registered', 'front\registeredUserController@report')->name('report.registered');
+Route::post('Report/registered/pdf', 'front\registeredUserController@pdf')->name('report.registered.pdf');
 
 //clear cache
 Route::get('/clear-cache', function() {
