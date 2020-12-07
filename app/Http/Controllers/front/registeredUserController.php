@@ -43,6 +43,7 @@ class registeredUserController extends Controller
     public function report(Request $request){
         $event_id = $request->get('event_id');
         $name = $request->get('Ename');
+        $organizer = $request->get('organizer');
         $event_date = $request->get('event_Date');
 
         $data = RegisteredUser::ReportRegisteredUser($event_id)->get();
@@ -50,6 +51,7 @@ class registeredUserController extends Controller
         return view('site/reports/registeredUser/reports', [
             'event_id' => $event_id,
             'name' => $name,
+            'organizer' => $organizer,
             'event_date' => $event_date,
             'data' => $data,
         ]);
@@ -58,20 +60,22 @@ class registeredUserController extends Controller
     public function pdf(Request $request){
         $event_id  =  $request->get('event_id');
         $name = $request->get('name');
+        $organizer = $request->get('organizer');
         $event_date = $request->get('event_date');
 
         $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->convert_report_to_html($event_id, $name, $event_date));
+        $pdf->loadHTML($this->convert_report_to_html($event_id, $name, $organizer, $event_date));
         // Paper Size
         $pdf->setPaper('A4');
         
         return @$pdf->stream();
     }
 
-    function convert_report_to_html($event_id, $name, $event_date)
+    function convert_report_to_html($event_id, $name, $organizer, $event_date)
     {
         $event_id = $event_id;
         $name = $name;
+        $organizer = $organizer;
         $event_date = $event_date;
 
         $data = RegisteredUser::ReportRegisteredUser($event_id)->get();
@@ -79,6 +83,7 @@ class registeredUserController extends Controller
         return view('site/reports/registeredUser/pdf',
             [
                 'name' => $name,
+                'organizer' => $organizer,
                 'event_date' => $event_date,
                 'data' => $data,
             ]

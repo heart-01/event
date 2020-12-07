@@ -34,7 +34,7 @@
                         <p class="card-text">
                             <div class="text-left">
                                 <i class="far fa-calendar-alt mr-3"></i> 
-                                <?php echo App\Event::DateToText( date('d-m-Y', strtotime($data->eventDateForm)).' - '.date('d-m-Y', strtotime($data->eventDateTo)) ); ?>
+                                <?php echo date('d M Y', strtotime($data->eventDateForm)).' - '.date('d M Y', strtotime($data->eventDateTo)); ?>
                             </div>
                         </p>
                         <p class="card-text">

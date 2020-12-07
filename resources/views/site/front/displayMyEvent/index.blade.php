@@ -18,8 +18,8 @@
         <thead>
             <tr>
                 <th scope="col">No.</th>
-                <th scope="col">Name</th>
                 <th scope="col">Registered Date</th>
+                <th scope="col">Name</th>                
                 <th scope="col">Certificate</th>
             </tr>
         </thead>
@@ -27,8 +27,8 @@
             @foreach($data as $key => $row)
             <tr>
                 <th>{{ $key+1 }}</th>
+                <td>{{ date('d M Y', strtotime($row->registered_date)) }}</td>
                 <td>{{ $row->name }}</td>
-                <td>{{ date('d/m/Y', strtotime($row->registered_date)) }}</td>
                 <td>
                     @if($row->certificate_code != null)
                     <button class="btn btn-success text-white"> Certificate <i class="fas fa-download"></i></button>

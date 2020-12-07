@@ -12,8 +12,8 @@
     <td>{{ $row->name}}</td>
     <td>{{ $row->description}}</td>
     <td>{{ $row->organizer}}</td>
-    <td>{{ date('d/m/Y', strtotime($row->eventDateForm)) }} <br> {{' To '}} <br> {{ date('d/m/Y', strtotime($row->eventDateTo)) }}</td>
-    <td>{{ date('d/m/Y', strtotime($row->registerStartDate)) }} <br> {{' To '}} <br> {{ date('d/m/Y', strtotime($row->registerEndDate)) }}</td>
+    <td>{{ date('d M Y', strtotime($row->eventDateForm)) }} <br> {{' To '}} <br> {{ date('d M Y', strtotime($row->eventDateTo)) }}</td>
+    <td>{{ date('d M Y', strtotime($row->registerStartDate)) }} <br> {{' To '}} <br> {{ date('d M Y', strtotime($row->registerEndDate)) }}</td>
     <td class="text-center">
         <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +23,8 @@
                 <?= Form::open(array('route' => array('report.registered'),'target' => '_blank')) ?>
                     <?= Form::hidden('event_id', $row->event_id) ?>
                     <?= Form::hidden('Ename', $row->name) ?>
-                    <?= Form::hidden('event_Date', date('d/m/Y', strtotime($row->registerStartDate))) ?>
+                    <?= Form::hidden('event_Date', date('d M Y', strtotime($row->registerStartDate))) ?>
+                    <?= Form::hidden('organizer', $row->organizer) ?>
                     <button type="submit" class="dropdown-item" ><i class="fas fa-user-check"></i> User Registered </button>
                 <?= Form::close() ?>
 

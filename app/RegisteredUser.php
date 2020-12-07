@@ -52,7 +52,7 @@ class RegisteredUser extends Model
         ->join('event AS e', 'e.event_id', '=', 'r.event_id')
         ->join('users AS u', 'u.id', '=', 'r.user_id')
         ->where('r.user_id', '=', $user_id)
-        ->orderBy('e.name', 'asc')
+        ->orderBy('r.registered_date', 'desc')
         ->select('*');
 
         return $query;

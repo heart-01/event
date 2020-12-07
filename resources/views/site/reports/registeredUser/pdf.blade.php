@@ -16,6 +16,7 @@
     <div style="width: 90%;" class="center" >
         <div class="text-center" style="font-size: 50px;" >{{ $name }}</div>
         <div class="text-center h1" >{{ $event_date }}</div>
+        <div class="text-center h1" >{{ $organizer }}</div>
         <table width="100%" class="border-groove" style="margin-top: 20px;">
             <thead>
                 <tr class="border-groove text-center">
@@ -33,7 +34,7 @@
                     <th class="border-groove" >{{ $key+1 }}</th>
                     <td class="border-groove text-center" >{{ $row->student_id }}</td>
                     <td class="border-groove" >&nbsp; {{ $row->fname . " " . $row->lname }}</td>
-                    <td class="border-groove text-center" >{{ date('d/m/Y', strtotime($row->registered_date)) }}</td>
+                    <td class="border-groove text-center" >{{ date('d M Y', strtotime($row->registered_date)) }}</td>
                     <td class="border-groove" ></td>
                     <td class="border-groove" ></td>
                 </tr>      

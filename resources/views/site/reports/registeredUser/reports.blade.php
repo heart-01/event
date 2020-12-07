@@ -6,6 +6,7 @@
     <?= Form::open(array('route' => array('report.registered.pdf'),'target' => '_blank')) ?>
         <?= Form::hidden('event_id', $event_id) ?>
         <?= Form::hidden('name', $name) ?>
+        <?= Form::hidden('organizer', $organizer) ?>
         <?= Form::hidden('event_date', $event_date) ?>
         <button type="submit" class="btn btn-success text-white"> PDF <i class="fas fa-download"></i></button>
     <?= Form::close() ?>
@@ -32,7 +33,7 @@
                 <th>{{ $key+1 }}</th>
                 <td>{{ $row->student_id }}</td>
                 <td>{{ $row->fname . " " . $row->lname }}</td>
-                <td>{{ date('d/m/Y', strtotime($row->registered_date)) }}</td>
+                <td>{{ date('d M Y', strtotime($row->registered_date)) }}</td>
             </tr>
             @endforeach
         </tbody>
