@@ -117,7 +117,7 @@
                   <a class="btn btn-outline-danger" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                      <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
+                      <i class="fas fa-sign-out-alt"></i> Sign Out
                   </a>
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

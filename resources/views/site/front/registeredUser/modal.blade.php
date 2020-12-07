@@ -1,4 +1,4 @@
-<!-- modal Add -->
+<!-- modal Registered -->
 <div class="modal fade" id="showRegisterEvent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="font-family: kanit;">
@@ -9,14 +9,9 @@
                 </button>
             </div>
             <div class="modal-body">
-            <?= Form::open(array('route' => 'category.store','id' => 'frmAdd','files' =>true)) ?>
-                <div class="form-group">
-                    <div class="form-group">
-                        <div class="form-group">
-                            <?= Form::label('name', '* Category '); ?>
-                            <?= Form::text('name', null, ['class' => 'form-control mb-3', 'placeholder' => 'Name Category', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z\d]+$' ,'required']); ?>
-                        </div>
-                    </div>
+            <?= Form::open(array('route' => 'registered.ruleCaptcha','id' => 'frmRegistered')) ?>
+                <div class="form-group d-flex justify-content-center">
+                    <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}" ></div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -27,3 +22,5 @@
         </div>
     </div>
 </div>
+
+<script src="{{ asset('/js/front/registeredUser/modal.js') }}" type="text/javascript"></script>

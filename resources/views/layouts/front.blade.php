@@ -84,31 +84,66 @@
                 </form>
               </ul>              
             </div>
-
+            
             <a href="{{ route('welcome') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block @if(Request::is('welcome')|Request::is('/')|Request::is('home')) active-menu @endif">
-                Home
-            </a>       
-            @if (Session::get('status')=='1'||Session::get('status')=='2') 
-              <div class="decoration-inside"></div>
-              <a href="{{ route('calendarEvent') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
-                Create Event
-              </a>
-            @endif   
-            @if (Session::get('status')=='1') 
-              <div class="decoration-inside"></div>
-              <a href="{{ route('permissions') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
-                <i class="fas fa-user-cog"></i> Admin Dashboard
-              </a>
-            @endif           
+              Home
+            </a>
+            <div class="decoration-inside d-none d-sm-none d-md-none d-lg-block"></div>
 
-            <div class="text-right">
+            <div class="text-right">     
               @if (Session::get('status')) 
+
+              <!-- User Menu -->
+              <li class="dropdown user user-menu open d-none d-sm-none d-md-none d-lg-block">
+                <a href="#" class="dropdown-toggle text-dark nav-link" style="display:block;width:80px;" data-toggle="dropdown" aria-expanded="true">
+                  <img src="{{ url('/dashboard/dist/img/admin.png') }}" width="63%" alt="User Image">
+                </a>
+                <ul class="dropdown-menu kanin" style="@if (Session::get('status')=='1') width: 200px !important;height: 180px !important; 
+                  @elseif (Session::get('status')=='2') width: 200px !important;height: 120px !important; @else width: 200px !important;height: 65px !important; @endif">
+                    <!-- Menu Body -->
+                    <li class="user-body">
+                        @if (Session::get('status')=='1'||Session::get('status')=='2') 
+                          <div class="col-xs-4 text-center">
+                            <a href="{{ route('calendarEvent') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
+                              Create Event
+                            </a>
+                          </div>
+                          <div class="dropdown-divider"></div>
+                        @endif   
+                        @if (Session::get('status')=='1') 
+                          <div class="col-xs-4 text-center">
+                            <a href="{{ route('permissions') }}" class="nav-link d-none d-sm-none d-md-none d-lg-block">
+                              <i class="fas fa-user-cog"></i> Admin Dashboard
+                            </a>
+                          </div>
+                          <div class="dropdown-divider"></div>
+                        @endif  
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                      <div class="row text-center">
+                        <div class="col-12 mt-1">
+                          <a class="btn btn-outline-danger" href="{{ route('logout') }}"
+                              onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                              <i class="fas fa-sign-out-alt"></i> Sign Out
+                          </a>
+        
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                          </form>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
                 <!--Desktop-->
-                <a class="btn btn-danger btn-sm rounded-pill mt-1 d-none d-sm-none d-md-none d-lg-block logout" href="{{ route('logout') }}"
+                {{-- <a class="btn btn-danger btn-sm rounded-pill mt-1 d-none d-sm-none d-md-none d-lg-block logout" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> Sign Out
-                </a>
+                </a> --}}
                 <!--Mobile-->
                 <a class="btn btn-danger btn-sm rounded-pill mt-1 d-block d-sm-block d-md-block d-lg-none logout" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -128,7 +163,7 @@
                   <i class="fas fa-unlock mr-1"></i> Log In / Sign Up
                 </a>
               @endif
-            </div>
+            </div>            
           </div>
         </nav>
       </div>
@@ -196,10 +231,10 @@
   <!--end  main  -->
 
   <!--start  footer -->
-  @for ($i = 0; $i < 10; $i++)
+  {{-- @for ($i = 0; $i < 10; $i++)
     <br>
-  @endfor 
-  <div class="container-fluid" style="background-color: #260176de;">
+  @endfor  --}}
+  <div class="container-fluid" style="background-color: #260176de;margin-top: 50px;">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12">
         <div class="d-flex justify-content-center myfooter">

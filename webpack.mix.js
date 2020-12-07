@@ -17,6 +17,8 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/front/main/bootstrap.min.js', 'public/js/front/main')
     .js('resources/js/front/main/main.js', 'public/js/front/main')
 
+    .js('resources/js/front/registeredUser/modal.js', 'public/js/front/registeredUser')
+
     .js('resources/js/admin/dashboard.js', 'public/js/admin')
     .js('resources/js/admin/category/index.js', 'public/js/admin/category')
     .js('resources/js/admin/category/data-row.js', 'public/js/admin/category')

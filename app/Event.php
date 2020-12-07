@@ -17,7 +17,7 @@ class Event extends Model
     // public $incrementing = false;
 
     protected $fillable = [
-        'event_id', 'name', 'description', 'category_id', 'eventDateForm', 'eventDateTo', 'registerStartDate', 'registerEndDate', 'poster', 'banner', 'postedDate', 'postedBy', 'certificateAvailable', 'organizer',
+        'event_id', 'name', 'description', 'category_id', 'eventDateForm', 'eventDateTo', 'registerStartDate', 'registerEndDate', 'poster', 'banner', 'postedDate', 'postedBy', 'certificateAvailable', 'place', 'organizer',
     ];
 
     public function scopeEventAll($query)

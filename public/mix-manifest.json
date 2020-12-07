@@ -13,5 +13,6 @@
     "/js/front/main/bootstrap.min.js": "/js/front/main/bootstrap.min.js",
     "/js/front/main/jquery-3.3.1.slim.min.js": "/js/front/main/jquery-3.3.1.slim.min.js",
     "/js/front/main/main.js": "/js/front/main/main.js",
-    "/js/front/main/popper.min.js": "/js/front/main/popper.min.js"
+    "/js/front/main/popper.min.js": "/js/front/main/popper.min.js",
+    "/js/front/registeredUser/modal.js": "/js/front/registeredUser/modal.js"
 }

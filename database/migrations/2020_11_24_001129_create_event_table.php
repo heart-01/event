@@ -30,6 +30,7 @@ class CreateEventTable extends Migration
             $table->foreign('postedBy')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('surveyRequired');
             $table->boolean('certificateAvailable');
+            $table->string('place');  
             $table->string('organizer');
         });
     }

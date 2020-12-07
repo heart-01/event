@@ -10,6 +10,7 @@ $(".showEdit").click(function(){
     var data_registerStartEndDate =  $(this).attr('data-data_registerStartEndDate');
     var surveyRequired =  $(this).attr('data-surveyRequired');
     var certificateAvailable =  $(this).attr('data-certificateAvailable');
+    var place =  $(this).attr('data-place');
     var organizer =  $(this).attr('data-organizer');
 
     $('#showEdit').modal('show'); 
@@ -26,8 +27,9 @@ $(".showEdit").click(function(){
     $('#category-edit').selectpicker('val', category_id);
     $("#eventDateFormTo-edit").val(eventDateFormTo);
     $("#registerStartEndDate-edit").val(data_registerStartEndDate);
-    $("#SurveyRequired-edit").selectpicker('val', surveyRequired);
-    $("#certificateAvailable-edit").selectpicker('val', certificateAvailable);
+    (surveyRequired == '1') ? $("#SurveyRequired1-edit").attr('checked', 'checked') : $("#SurveyRequired2-edit").attr('checked', 'checked');
+    (certificateAvailable == '1') ?  $("#certificateAvailable1-edit").attr('checked', 'checked') : $("#certificateAvailable2-edit").attr('checked', 'checked');
+    $("#place-edit").val(place);  
     $("#organizer-edit").val(organizer);    
 
     return false;

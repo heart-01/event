@@ -21,8 +21,10 @@ Route::get('/', 'HomeController@index');
 Route::get('/welcome', 'HomeController@index')->name('welcome');
 
 Route::get('/category/{name}', 'HomeController@category');
-
 Route::get('/Event/{name}', 'HomeController@event');
+
+Route::post('Registered/ruleCaptcha', 'front\registeredUserController@ruleCaptcha')->name('registered.ruleCaptcha');
+Route::post('Registered', 'front\registeredUserController@registered')->name('registered.registered');
 
 //admin
 Route::get('/Category', 'admin\CategoryController@index')->name('category');

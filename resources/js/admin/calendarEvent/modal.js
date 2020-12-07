@@ -50,6 +50,14 @@ $('#poster').change( function(e) {
     $('#btnfrmAdd').prop('disabled', false);
 });
 
+var place = document.getElementById('place');
+place.oninvalid = function(event) {
+    event.target.setCustomValidity('Please enter a Name Place. Thai or English or Number only !');
+}
+place.oninput = function(event) {
+    event.target.setCustomValidity('');
+}
+
 var organizer = document.getElementById('organizer');
 organizer.oninvalid = function(event) {
     event.target.setCustomValidity('Please enter a Name organizer. Thai or English or Number only !');
@@ -68,6 +76,12 @@ $("#frmAdd").on("submit", function() {
         Swal.fire("<span class='kanin'>Please select Register Event Date !</span>", "", "warning").then(() => { $('#registerStartEndDate').focus(); });
         return false;
     }
+
+    var $SurveyRequired = $('input:radio[name="SurveyRequired"]');
+    $SurveyRequired.addClass("validate[required]");
+
+    var $certificateAvailable = $('input:radio[name="certificateAvailable"]');
+    $certificateAvailable.addClass("validate[required]");
 
     return true;
 });
@@ -124,6 +138,14 @@ $('#poster-edit').change( function(e) {
     $('#btnfrmEdit').prop('disabled', false);
 });
 
+var place_edit = document.getElementById('place-edit');
+place_edit.oninvalid = function(event) {
+    event.target.setCustomValidity('Please enter a Name Place. Thai or English or Number only !');
+}
+place_edit.oninput = function(event) {
+    event.target.setCustomValidity('');
+}
+
 var organizer_edit = document.getElementById('organizer-edit');
 organizer_edit.oninvalid = function(event) {
     event.target.setCustomValidity('Please enter a Name organizer. Thai or English or Number only !');
@@ -142,6 +164,12 @@ $("#frmEdit").on("submit", function() {
         Swal.fire("<span class='kanin'>Please select Register Event Date !</span>", "", "warning").then(() => { $('#registerStartEndDate-edit').focus(); });
         return false;
     }
+
+    var $SurveyRequired = $('input:radio[name="SurveyRequired-edit"]');
+    $SurveyRequired.addClass("validate[required]");
+
+    var $certificateAvailable = $('input:radio[name="certificateAvailable-edit"]');
+    $certificateAvailable.addClass("validate[required]");
 
     return true;
 });

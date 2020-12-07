@@ -15,12 +15,28 @@
     <td>{{ date('d/m/Y', strtotime($row->eventDateForm))}} <br> {{' To '}} <br> {{ date('d/m/Y', strtotime($row->eventDateTo)) }}</td>
     <td>{{ date('d/m/Y', strtotime($row->registerStartDate))}} <br> {{' To '}} <br> {{ date('d/m/Y', strtotime($row->registerEndDate)) }}</td>
     <td class="text-center">
-        <button data-event_id="{{ $row->event_id}}" data-name="{{ $row->name}}" data-description="{{ $row->description}}" data-banner="{{ $row->banner}}"
-            data-category_id="{{ $row->category_id}}" data-eventDateFormTo="{{ date('d-m-Y', strtotime($row->eventDateForm)).' - '.date('d-m-Y', strtotime($row->eventDateTo)) }}" 
-            data-data_registerStartEndDate="{{ date('d-m-Y', strtotime($row->registerStartDate)).' - '.date('d-m-Y', strtotime($row->registerEndDate)) }}"
-            data-surveyRequired="{{ $row->surveyRequired}}" data-certificateAvailable="{{ $row->certificateAvailable}}" data-organizer="{{ $row->organizer}}"
-            class="btn btn-warning text-white btn-sm mr-3 showEdit" ><i class="fas fa-pencil-alt"></i> EDIT</button>
-        <button data-event_id="{{ $row->event_id}}" data-name="{{ $row->name}}" type="button" class="btn btn-danger btn-sm event_delete" ><i class="fas fa-trash"></i> Delete</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog"></i>
+            </button>
+            <div class="dropdown-menu text-center">
+                <button class="dropdown-item" ><i class="fas fa-user-check"></i> User Registered </button>
+
+                <div class="dropdown-divider"></div>
+
+                <button data-event_id="{{ $row->event_id}}" data-name="{{ $row->name}}" data-description="{{ $row->description}}" data-banner="{{ $row->banner}}"
+                    data-category_id="{{ $row->category_id}}" data-eventDateFormTo="{{ date('d-m-Y', strtotime($row->eventDateForm)).' - '.date('d-m-Y', strtotime($row->eventDateTo)) }}" 
+                    data-data_registerStartEndDate="{{ date('d-m-Y', strtotime($row->registerStartDate)).' - '.date('d-m-Y', strtotime($row->registerEndDate)) }}"
+                    data-surveyRequired="{{ $row->surveyRequired}}" data-certificateAvailable="{{ $row->certificateAvailable}}" data-place="{{ $row->place}}" data-organizer="{{ $row->organizer}}"
+                    class="dropdown-item showEdit" style="background-color: #ffc107;color: white;" ><i class="fas fa-pencil-alt"></i> EDIT</button>
+                
+                <div class="dropdown-divider"></div>
+
+                <button data-event_id="{{ $row->event_id}}" data-name="{{ $row->name}}" class="text-white bg-danger event_delete dropdown-item" ><i class="fas fa-trash"></i> Delete </button>
+            </div>
+        </div>
+
+        
     </td>
 </tr>
 @endforeach

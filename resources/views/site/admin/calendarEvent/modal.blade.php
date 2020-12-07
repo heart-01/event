@@ -26,9 +26,25 @@
                             <?= Form::label('poster', 'Poster And Banner'); ?>
                             <?= Form::file('poster', ['class' =>'mb-3']); ?>
                             <?= Form::label('SurveyRequired', '* SurveyRequired '); ?>
-                            <?= Form::select('SurveyRequired', ['1'=>'Available', '0'=>'Unavailable'], null, ['class' => 'form-control selectpicker mb-3', 'dropupAuto' =>'false', 'data-size' =>'3', 'placeholder' => 'Select SurveyRequired' , 'required']); ?>
+                            <div class="form-check">
+                                <?= Form::radio('SurveyRequired', '1', null, ['class' => 'form-check-input', 'id' => 'SurveyRequired1', 'required']); ?>
+                                <?= Form::label('SurveyRequired1', 'Available ', ['class' => 'form-check-label']); ?>
+                            </div>
+                            <div class="form-check mb-3">
+                                <?= Form::radio('SurveyRequired', '0', null, ['class' => 'form-check-input', 'id' => 'SurveyRequired2']); ?>
+                                <?= Form::label('SurveyRequired2', 'Unavailable ', ['class' => 'form-check-label']); ?>
+                            </div>                        
                             <?= Form::label('certificateAvailable', '* CertificateAvailable '); ?>
-                            <?= Form::select('certificateAvailable', ['1'=>'Available', '0'=>'Unavailable'], null, ['class' => 'form-control selectpicker mb-3', 'dropupAuto' =>'false', 'data-size' =>'3', 'placeholder' => 'Select CertificateAvailable' , 'required']); ?>
+                            <div class="form-check">
+                                <?= Form::radio('certificateAvailable', '1', null, ['class' => 'form-check-input', 'id' => 'certificateAvailable1', 'required']); ?>
+                                <?= Form::label('certificateAvailable1', 'Available ', ['class' => 'form-check-label']); ?>
+                            </div>
+                            <div class="form-check mb-3">
+                                <?= Form::radio('certificateAvailable', '0', null, ['class' => 'form-check-input', 'id' => 'certificateAvailable2']); ?>
+                                <?= Form::label('certificateAvailable2', 'Unavailable ', ['class' => 'form-check-label']); ?>
+                            </div> 
+                            <?= Form::label('place', '* Place '); ?>
+                            <?= Form::text('place', null, ['class' => 'form-control mb-3', 'placeholder' => 'Place', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z\d]+$' ,'required']); ?>
                             <?= Form::label('organizer', '* Organizer '); ?>
                             <?= Form::text('organizer', null, ['class' => 'form-control mb-3', 'placeholder' => 'Organizer', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z\d]+$' ,'required']); ?>
                         </div>
@@ -59,7 +75,7 @@
                 <div class="form-group">
                     <div class="form-group">
                         <?= Form::label('name-edit', '* Event : '); ?>
-                        <?= Form::text('name-edit', null, ['class' => 'form-control mb-3', 'placeholder' => 'Name Event', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z]+$' ,'required']); ?>
+                        <?= Form::text('name-edit', null, ['class' => 'form-control mb-3', 'placeholder' => 'Name Event', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z\d]+$' ,'required']); ?>
                         <?= Form::label('description-edit', '* Description '); ?>
                         <?= Form::text('description-edit', null, ['class' => 'form-control mb-3', 'placeholder' => 'Description', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z\d]+$' ,'required']); ?>
                         <?= Form::label('category-edit', '* Category  '); ?>
@@ -76,9 +92,25 @@
                         </div>
                         <?= Form::file('poster-edit', ['class' =>'mb-3']); ?>
                         <?= Form::label('SurveyRequired-edit', '* SurveyRequired '); ?>
-                        <?= Form::select('SurveyRequired-edit', ['1'=>'Available', '0'=>'Unavailable'], null, ['class' => 'form-control selectpicker mb-3', 'dropupAuto' =>'false', 'data-size' =>'3', 'placeholder' => 'Select SurveyRequired' , 'required']); ?>
+                        <div class="form-check">
+                            <?= Form::radio('SurveyRequired-edit', '1', null, ['class' => 'form-check-input', 'id' => 'SurveyRequired1-edit', 'required']); ?>
+                            <?= Form::label('SurveyRequired1-edit', 'Available ', ['class' => 'form-check-label']); ?>
+                        </div>
+                        <div class="form-check mb-3">
+                            <?= Form::radio('SurveyRequired-edit', '0', null, ['class' => 'form-check-input', 'id' => 'SurveyRequired2-edit']); ?>
+                            <?= Form::label('SurveyRequired2-edit', 'Unavailable ', ['class' => 'form-check-label']); ?>
+                        </div>                        
                         <?= Form::label('certificateAvailable-edit', '* CertificateAvailable '); ?>
-                        <?= Form::select('certificateAvailable-edit', ['1'=>'Available', '0'=>'Unavailable'], null, ['class' => 'form-control selectpicker mb-3', 'dropupAuto' =>'false', 'data-size' =>'3', 'placeholder' => 'Select CertificateAvailable' , 'required']); ?>
+                        <div class="form-check">
+                            <?= Form::radio('certificateAvailable-edit', '1', null, ['class' => 'form-check-input', 'id' => 'certificateAvailable1-edit', 'required']); ?>
+                            <?= Form::label('certificateAvailable1-edit', 'Available ', ['class' => 'form-check-label']); ?>
+                        </div>
+                        <div class="form-check mb-3">
+                            <?= Form::radio('certificateAvailable-edit', '0', null, ['class' => 'form-check-input', 'id' => 'certificateAvailable2-edit']); ?>
+                            <?= Form::label('certificateAvailable2-edit', 'Unavailable ', ['class' => 'form-check-label']); ?>
+                        </div> 
+                        <?= Form::label('place-edit', '* Place '); ?>
+                        <?= Form::text('place-edit', null, ['class' => 'form-control mb-3', 'placeholder' => 'Organizer', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z\d]+$' ,'required']); ?>
                         <?= Form::label('organizer-edit', '* Organizer '); ?>
                         <?= Form::text('organizer-edit', null, ['class' => 'form-control mb-3', 'placeholder' => 'Organizer', 'autocomplete'=> 'off','maxlength' =>'100','pattern' =>'^[ก-๏\sa-zA-Z\d]+$' ,'required']); ?>
                         <?= Form::hidden('event_id-edit', null, ['id' => 'event_id-edit'],); ?>                        

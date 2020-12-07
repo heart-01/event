@@ -98,6 +98,7 @@ class calendarEventController extends Controller
         $postedBy = Auth::user()->id;
         $surveyRequired = $request->get('SurveyRequired');
         $certificateAvailable = $request->get('certificateAvailable');
+        $place = $request->get('place');  
         $organizer = $request->get('organizer');  
 
         // ------------------------------------
@@ -124,6 +125,7 @@ class calendarEventController extends Controller
             $Event->postedBy = $postedBy;
             $Event->surveyRequired = $surveyRequired;
             $Event->certificateAvailable = $certificateAvailable;
+            $Event->place = $place;
             $Event->organizer = $organizer;  
 
             if ($request->hasFile('poster')) {
@@ -159,6 +161,7 @@ class calendarEventController extends Controller
 
         $surveyRequired = $request->get('SurveyRequired-edit');
         $certificateAvailable = $request->get('certificateAvailable-edit');
+        $place = $request->get('place-edit');  
         $organizer = $request->get('organizer-edit');  
 
         // --------------------------------------------
@@ -179,6 +182,7 @@ class calendarEventController extends Controller
             $Event->registerEndDate = $registerEndDate;
             $Event->surveyRequired = $surveyRequired;
             $Event->certificateAvailable = $certificateAvailable;
+            $Event->place = $place;
             $Event->organizer = $organizer;
             
             if ($request->hasFile('poster-edit')) {
@@ -218,6 +222,7 @@ class calendarEventController extends Controller
                 $Event->registerEndDate = $registerEndDate;
                 $Event->surveyRequired = $surveyRequired;
                 $Event->certificateAvailable = $certificateAvailable;
+                $Event->place = $place;
                 $Event->organizer = $organizer;
 
                 if ($request->hasFile('poster-edit')) {

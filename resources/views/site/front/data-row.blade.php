@@ -25,7 +25,7 @@
                         </div>
                         <div class="short-location text-muted d-flex align-items-baseline">
                             <i class="fas fa-map-marker-alt mr-3"></i>
-                            {{ $row->organizer }}
+                            {{ $row->place }}
                         </div>
                     </div>
                 </a>

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -155,6 +155,16 @@ $('#poster').change(function (e) {
 
   $('#btnfrmAdd').prop('disabled', false);
 });
+var place = document.getElementById('place');
+
+place.oninvalid = function (event) {
+  event.target.setCustomValidity('Please enter a Name Place. Thai or English or Number only !');
+};
+
+place.oninput = function (event) {
+  event.target.setCustomValidity('');
+};
+
 var organizer = document.getElementById('organizer');
 
 organizer.oninvalid = function (event) {
@@ -181,6 +191,10 @@ $("#frmAdd").on("submit", function () {
     return false;
   }
 
+  var $SurveyRequired = $('input:radio[name="SurveyRequired"]');
+  $SurveyRequired.addClass("validate[required]");
+  var $certificateAvailable = $('input:radio[name="certificateAvailable"]');
+  $certificateAvailable.addClass("validate[required]");
   return true;
 }); //modal Edit
 
@@ -245,6 +259,16 @@ $('#poster-edit').change(function (e) {
 
   $('#btnfrmEdit').prop('disabled', false);
 });
+var place_edit = document.getElementById('place-edit');
+
+place_edit.oninvalid = function (event) {
+  event.target.setCustomValidity('Please enter a Name Place. Thai or English or Number only !');
+};
+
+place_edit.oninput = function (event) {
+  event.target.setCustomValidity('');
+};
+
 var organizer_edit = document.getElementById('organizer-edit');
 
 organizer_edit.oninvalid = function (event) {
@@ -271,12 +295,16 @@ $("#frmEdit").on("submit", function () {
     return false;
   }
 
+  var $SurveyRequired = $('input:radio[name="SurveyRequired-edit"]');
+  $SurveyRequired.addClass("validate[required]");
+  var $certificateAvailable = $('input:radio[name="certificateAvailable-edit"]');
+  $certificateAvailable.addClass("validate[required]");
   return true;
 });
 
 /***/ }),
 
-/***/ 13:
+/***/ 14:
 /*!*********************************************************!*\
   !*** multi ./resources/js/admin/calendarEvent/modal.js ***!
   \*********************************************************/
